@@ -1,22 +1,21 @@
-// const { argv } = require('yargs');
-const yargs = require('yargs')
+var fs = require('fs');
 
-yargs.version('1.1.0');
+const yarg = require("yargs")
+.usage("hi")
+.options("fileName", {demandOption: true})
+.options("fileContent", {demandOption: true})
+.argv;
 
-yargs.command({
-    command : 'add',
-    describe: "Adding a Note",
-    builder:{
-        fileName:{
-            describe: "File Name",
-            type: "string"
-        },
-        fileContent:{
-            describe: "File Content",
-            type: "number"
-        }
-    }
+var file = yarg.argv[-fileName];
+console.log(file);
+// console.log(fileName);
 
-})
 
-console.log(yargs.argv.fileName);
+
+// fileContent = yarg.argv[1];
+
+
+// fs.writeFile(fileName,fileContentarg.argv[, (err) => {
+// 	if(err) return err;
+// 	console.log("The file has been saved");
+// });	
