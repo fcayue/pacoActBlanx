@@ -14,4 +14,4 @@ fileContent = fileContent.substr(auxPos+1);
 fs.writeFile(fileName,fileContent, (err) => {
 	if(err) return err;
 	console.log("The file has been saved");
-});process.argv[3]
+});	
