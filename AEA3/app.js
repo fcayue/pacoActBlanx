@@ -58,8 +58,8 @@ const main = async () => {
       case "5":
         const id2 = await alumneSelect(alumnes.llistatArr);
         console.log(id2);
-        const nomAlumneEliminar = await eliminarAlumne(id2);
-        eliminarDB(nomAlumneEliminar)
+        //const nomAlumneEliminar = await eliminarAlumne(id2); 
+        eliminarDB(id2)
         // if (id2 !== "0") {
         // const ok -> cridem a confirmar
         // if( ok ) {
