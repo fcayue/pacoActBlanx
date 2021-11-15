@@ -9,24 +9,25 @@ const guardarDB = (data) => {
 
 //Pruebas PACOCS
 const eliminarDB = (id) => {
-  console.log(id);
+  console.log("estamos dentro del eliminar");
   console.log('---------------------------');
   var personas = JSON.parse(fs.readFileSync(fitxer,'utf-8'));
-  console.log(personas.length);
+  console.log(personas.length, "personas");
+  console.log(id);
   for(var i=0; i < personas.length; i++){
+    // console.log(personas[i]);
       if(id == personas[i].id){
-        delete personas.id;
+        console.log("coincide");
+        console.log(personas[i].id);
+        personas.splice(i,1)
       }
+      
     }
-  console.log(personas);
+    console.log("fuera del for");
+    console.log(personas);
+    fs.writeFileSync(fitxer, JSON.stringify(personas));
+  // console.log(personas);
 
-  // var str = JSON.stringify(personas);
-  // fs.writeFile(fitxer, str, function(err){
-  //   if(err){
-  //     console.error(err);
-  //   }
-  //   console.log("Eliminado correctamente")
-  // })
 }
   
   
