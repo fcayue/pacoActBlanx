@@ -58,11 +58,16 @@ const main = async () => {
       case "5":
         const id2 = await alumneSelect(alumnes.llistatArr);
         var listaAux = eliminarDB(id2)
-        console.log(listaAux[1]);
-        
-        
-        console.log("SAlida");
-        
+
+
+        // alumnes.llistatArr = listaAux;
+        console.log("Igualando listas")
+        console.log(listaAux);
+
+        // for (let i = 0; i < listaAux.length; i++) {
+        //   console.log(listaAux[i]);
+        // }
+
         break;
 
       default:

@@ -9,11 +9,9 @@ const guardarDB = (data) => {
 
 //Pruebas PACOCS
 const eliminarDB = (id) => {
-  console.log("estamos dentro del eliminar");
-  console.log('---------------------------');
+  
   var personas = JSON.parse(fs.readFileSync(fitxer,'utf-8'));
-  console.log(personas.length, "personas");
-  console.log(id);
+  
   for(var i=0; i < personas.length; i++){
     // console.log(personas[i]);
       if(id == personas[i].id){
@@ -23,9 +21,10 @@ const eliminarDB = (id) => {
       }
       
     }
-    console.log("fuera del for");
-    console.log(personas);
+    
+    
     fs.writeFileSync(fitxer, JSON.stringify(personas));
+    console.log("actualizadojson")
   // console.log(personas);
 
 }
