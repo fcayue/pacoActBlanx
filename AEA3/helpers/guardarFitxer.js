@@ -6,34 +6,6 @@ const guardarDB = (data) => {
   fs.writeFileSync(fitxer, JSON.stringify(data));
 };
 
-
-//Pruebas PACOCS
-const eliminarDB = (id) => {
-  
-  var personas = JSON.parse(fs.readFileSync(fitxer,'utf-8'));
-  
-  for(var i=0; i < personas.length; i++){
-    // console.log(personas[i]);
-      if(id == personas[i].id){
-        console.log("coincide");
-        console.log(personas[i].id);
-        personas.splice(i,1)
-      }
-      
-    }
-    
-    
-    fs.writeFileSync(fitxer, JSON.stringify(personas));
-    console.log("actualizadojson")
-  // console.log(personas);
-
-}
-  
-  
-
-  
-
-
 const readDB = () => {
   if (!fs.existsSync(fitxer)) {
     return null;
@@ -52,5 +24,4 @@ const readDB = () => {
 module.exports = {
   guardarDB,
   readDB,
-  eliminarDB,
 };

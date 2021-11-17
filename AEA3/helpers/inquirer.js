@@ -77,42 +77,6 @@ const nouAlumne = async (message) => {
   return nom;
 };
 
-//metodo nuevo PACOCS
-const elimnarAlumne = async (message) => {
-  const alumneSelectEliminar  = async (alumnes = []) => {
-    const choices = alumnes.map((alumne, i) => {
-      const idx = `${i + 1}.`.green;
-      return {
-        value: alumne.id,
-        name: `${idx} ${alumne.nom}`,
-      };
-    });
-
-    choices.unshift({
-      value: "0",
-      name: "0. ".green + "Cancel·lar",
-    });
-  
-    const pregunta = [
-      {
-        type: "list",
-        name: "id",
-        message: "Selecciona alumne",
-        choices,
-      },
-    ];
-  
-    const { id } = await inquirer.prompt(pregunta);
-    return id;
-  };
-  
-
-  // const { nom } = await inquirer.prompt(question);
-  // return nom;
-};
-
-//metodo nuevo PACOCS
-
 const alumneSelect = async (alumnes = []) => {
   const choices = alumnes.map((alumne, i) => {
     const idx = `${i + 1}.`.green;

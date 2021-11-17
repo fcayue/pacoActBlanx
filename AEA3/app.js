@@ -57,23 +57,20 @@ const main = async () => {
 
       case "5":
         const id2 = await alumneSelect(alumnes.llistatArr);
-        var listaAux = eliminarDB(id2)
-
-
-        // alumnes.llistatArr = listaAux;
-        console.log("Igualando listas")
-        console.log(listaAux);
-
-        // for (let i = 0; i < listaAux.length; i++) {
-        //   console.log(listaAux[i]);
-        // }
-
+        if (id2 !== "0") {
+          const ok = await introHores(
+            "Control+C per cancelar o prem qualsevol tecla per confirmar: "
+          );
+          const nomAlumne = await alumnes.introNumHores(id2);
+          alumnes.eliminarAlumne(id2);
+          console.log(`L'Alumne ${nomAlumne} s'ha eliminat`);
+        }
         break;
 
       default:
         break;
     }
-
+    
     guardarDB(alumnes.llistatArr);
 
     await pausa();
