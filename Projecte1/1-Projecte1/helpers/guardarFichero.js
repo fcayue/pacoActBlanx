@@ -12,7 +12,8 @@ const readDB = () => {
     if(!fs.existsSync(fichero)){
         return null;
     }
-    const info = fs.readFileSync(fichero, {encoding: 'utf-8'});
+
+    const info = fs.readFileSync(fichero, { encoding: "utf-8" });
     const data = JSON.parse(info);
 
     return data;

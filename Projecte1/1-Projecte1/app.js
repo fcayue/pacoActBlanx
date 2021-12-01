@@ -1,5 +1,6 @@
 require('colors');
 
+
 const {
     inquirerMenu,
     pausa,
@@ -7,11 +8,12 @@ const {
     eliminarSeleccion,
     confirmar,
     completarTareas,
-} = require('./helpers/inquirer');
-const {guardarDB, readDB} = require = ('./helpers/guardarFichero');
+  } = require("./helpers/inquirer");
+  const { guardarDB, readDB } = require("./helpers/guardarFichero");
+  
+  const crearTareas = require("./models/crearTarea");
+  const tarea = require("./models/tarea");
 
-const crearTareas = require("./models/crearTarea");
-const tarea = require('./models/tarea');
 
 const main = async () => {
     let opt = "";
@@ -46,7 +48,30 @@ const main = async () => {
                 console.log(`${"TAREA COMPLETADA".yellow}`);
                 break;
             case "5":
-                
+                const id2 = await eliminarSeleccion(tareas.listaArr);
+
+                if (id2 !== "0") {
+                    const confirm = await confirmar(
+                        `${"Seguro que quieres eliminar la tarea?".yellow}`
+                    );
+
+                    if (confirm !== false) {
+                        tareas.eliminarTarea(id2);
+
+                        console.log("Tarea eliminada");
+                    } else {
+                        console.log("La tarea no se ha eliminado");
+                    }
+                }
+                break;
+
+            default:
+                break;
         }
-    }
-}
+
+        guardarDB(tareas.listaArr);
+        await pausa();
+    } while (opt !== "0");
+};
+
+main();

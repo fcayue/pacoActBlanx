@@ -87,7 +87,7 @@ const completarTareas = async (tareas = [true]) => {
     });
 
     choices.unshift({
-        value: "0";
+        value: "0",
         name: "0. ".green + "Cancelar",
     });
 
@@ -121,7 +121,7 @@ const eliminarSeleccion = async (tarea = []) => {
     const choices = tarea.map((tarea, i) => {
         const id2 = `${i + 1}.`.green;
         return {
-            value: tarea.id;
+            value: tarea.id,
             name: `${id2} ${tarea.nombre}`,
         };
     });
