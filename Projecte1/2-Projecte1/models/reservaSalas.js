@@ -121,7 +121,7 @@ class ReservaSalas {
             result += `|`.black;
             for(let j = 0; j < sala[i].length; ++j) {
                 result += sala[i][j] + `|`.black;
-                this.listatArr.forEach((id) => {
+                this.listaArr.forEach((id) => {
                     const {fila, columna, pos} = id;
                     if (pos == " ♟ ") {
                         sala[fila][columna] = ` ♟ `.red;
